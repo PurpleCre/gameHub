@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gamehub Connect | Game List</title>
+    <link rel="stylesheet" href="../css/style.css" />
+    <script src="../js/game-list.js" type="module"></script>
+  </head>
+
+  <body>
+    <header class="divider" id="main-header">
+      <!-- Dynamic header from main.js -->
+    </header>
+    <section id="breadcrumbs"></section>
+    <main class="divider">
+      <section class="products">
+        <h2 id="title">Top Games</h2>
+        <div>
+          <label for="sort">Sort by:</label>
+          <select id="sort" name="sort">
+            <option value="name">Name</option>
+            <option value="price">Rating</option>
+          </select>
+        </div>
+        <ul class="showcase-list">
+          <!-- Dynamic Product List from ProductList.mjs -->
+        </ul>
+      </section>
+    </main>
+    <footer id="main-footer">
+      <!-- Dynamic footer from loadHeaderFooter -->
+    </footer>
+  </body>
+</html>
