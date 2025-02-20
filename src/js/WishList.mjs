@@ -6,10 +6,9 @@ function wishlistItemTemplate(item) {
   const color = item.Colors?.[0]?.ColorName || "No color specified";
   return `
     <li class="wishlist-card divider">
-      <button class="remove-wishlist" data-id="${item.id}">❌</button>
+      <button class="remove" data-id="${item.id}">❌</button>
         <img src="${item.background_image}" alt="${item.name}" />
         <h2 class="card__name">${item.name}</h2>
-      <p class="wishlist-card__color">${color}</p>
     </li>
   `;
 }
@@ -46,7 +45,7 @@ export default class WishList {
         console.error("Invalid game id:", button.dataset.id);
         return;
       }
-      if (button.classList.contains("remove-wishlist")) {
+      if (button.classList.contains("remove")) {
         if (confirm("Are you sure you want to remove this item from your wishlist?") == true) {
           // Remove item from wishlist:
           let wishlist = getLocalStorage(this.key) || [];

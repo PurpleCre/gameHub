@@ -21,9 +21,9 @@ export default class GameDetails {
   addToFav() {
     // Retrieve the cart from local storage or initialize an empty array
     let games = getLocalStorage("favs") || [];
-
+    console.log()
     // Check if the game already exists in the cart
-    let existingGame = games.find(item => item.Id === this.game.Id);
+    let existingGame = games.find(item => item.id === this.game.id);
 
     if (existingGame) {
       // If game exists, alert the user
@@ -44,7 +44,7 @@ export default class GameDetails {
     let wishlist = getLocalStorage("so-wishlist") || [];
 
     // Check if the game is already in the wishlist
-    let existing = wishlist.find(item => item.Id === this.game.Id);
+    let existing = wishlist.find(item => item.id === this.game.id);
     if (existing) {
       alert("This item is already in your wishlist.");
       return;
@@ -72,9 +72,10 @@ export default class GameDetails {
       <source media="(max-width: 500px)" srcset="${game.background_image}" />
       <img src="${game.background_image}" alt="${game.name}" />
     </picture>
-    <p class="game__description">
-      ${game.name} is sublime
-    </p>
+    <p class="rating">Rating: <br>${game.rating}</p>
+    <div class="game__description">
+      ${game.description}
+    </div>
     <div class="game-detail__actions">
       <button id="addToFav" data-id="${game.Id}">Add to Favourites</button>
       <button id="addToWishlist" data-id="${game.Id}">Add to Wishlist</button>

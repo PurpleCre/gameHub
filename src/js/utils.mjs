@@ -89,9 +89,9 @@ export async function setSuperscript() {
     if (!countEl) return; // Exit if element not found
 
     // Retrieve cart items from local storage
-    const cart = getLocalStorage("so-cart");
+    const cart = getLocalStorage("wishlist");
     if (!Array.isArray(cart)) {
-      setLocalStorage("so-cart", []);
+      setLocalStorage("wishlist", []);
       return;
     }
 

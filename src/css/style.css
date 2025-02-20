@@ -69,6 +69,29 @@ header {
   position: relative;
 }
 
+.parallax {
+  /* The image used */
+  background-image: url("../public/images/hero.jpg");
+
+  /* Set a specific height */
+  min-height: 300px;
+
+  /* Create the parallax scrolling effect */
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.sticky {
+  position: sticky;
+}
+
+.hero img {
+  height: 600px;
+  width: 100%
+}
+
 .hero .logo {
   position: absolute;
   left: calc(50% - 60px);
@@ -172,15 +195,12 @@ button {
   border: 0;
   font-size: var(--large-font);
   cursor: pointer;
-}
-
-.divider {
-  border-bottom: 2px solid var(--accent-green);
+  border-radius: 20px;
 }
 
 #addToWishlist {
   margin-top: 10px;
-  background-color: #d0d0d0;
+  background-color: var(--accent-green);
   color: var(--dark-grey);
   font-size: medium;
 }
@@ -197,13 +217,15 @@ button {
   padding-top: 1em;
   position: relative;
   text-align: center;
+  color: var(--accent-purple)
 }
 
 .cart svg {
   width: 25px;
+  fill: var(--accent-purple)
 }
 
-.cart:hover svg {
+.wishlist:hover svg {
   fill: gray;
 }
 
@@ -235,11 +257,11 @@ button {
 }
 
 /* Category Icons */
-.categories {
+.categories, .showcase-list {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  grid-template-columns: 1fr 1fr 1fr;
   text-align: center;
-  gap: 1em;
+  list-style-type: none;
 }
 
 .categories a {
@@ -255,20 +277,34 @@ button {
   justify-content: center;
   align-items: center;
   margin: auto;
+  width: 100%;
 }
 
-.product-list,
+.game-list,
 .wishlist {
   display: flex;
-  flex-flow: row wrap;
+  flex-flow: row nowrap;
   justify-content: space-between;
   list-style-type: none;
+  place-items: center;
   padding: 0;
 }
 
-.product-list a {
+a {
   text-decoration: none;
-  color: var(--dark-grey);
+  color: var(--light-text);
+}
+#explore {
+  border-radius: 10px ;
+}
+
+/*  favourites */
+.fav-list, .wishlist {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  text-align: center;
+  gap: 1em;
+  list-style-type: none;
 }
 
 /* Styles for product lists */
@@ -278,6 +314,7 @@ button {
   padding: 0.5em;
   border: 1px solid var(--light-grey);
   max-width: 250px;
+  color: var(--light-text);
 }
 
 .product-card h2,
@@ -296,18 +333,29 @@ button {
 
 /* End product list card */
 
-.product-detail {
+.game-detail {
   padding: 1em;
   max-width: 500px;
   margin: auto;
 }
 
-.product-detail img {
+.game-detail img {
   width: 100%;
 }
 
+.rating {
+  color: var(--accent-purple);
+}
+.game__description p{
+  text-align: left;
+  font-family: var(--font-body);
+  font-weight: lighter;
+  font: var(--small-font);
+  color: var(--muted-text);
+}
+
 /* Start cart list card styles */
-.cart-card {
+.wishlist-card {
   display: grid;
   grid-template-columns: 25% auto 15%;
   font-size: var(--small-font);
@@ -315,36 +363,36 @@ button {
   align-items: center;
 }
 
-.cart-card__image {
+.wishlist-card__image {
   grid-row: 1/3;
   grid-column: 1;
 }
 
-.cart-card p {
+.wishlist-card p {
   margin-top: 0;
 }
 
-.cart-card .card__name {
+.wishlist-card .card__name {
   grid-row: 1;
   grid-column: 2;
 }
 
-.cart-card__color {
+.wishlist-card__color {
   grid-row: 2;
   grid-column: 2;
 }
 
-.cart-card__quantity {
+.wishlist-card__quantity {
   grid-row: 1;
   grid-column: 3;
 }
 
-.cart-card__price {
+.wishlist-card__price {
   grid-row: 2;
   grid-column: 3;
 }
 
-.cart-card.divider {
+.wishlist-card.divider {
   position: relative;
 }
 
@@ -360,10 +408,13 @@ button {
   text-transform: capitalize;
 }
 
+.fav-card {
+  position: relative;
+}
 /* remove toggle */
 .remove {
   position: absolute;
-  top: 5px;
+  top: 2px;
   left: 1px;
   width: 35px;
   height: 35px;
@@ -371,7 +422,7 @@ button {
   border-radius: 50%;
   padding: 0;
   font-size: smaller;
-  background-color: #7f94bd;
+  background-color: rgba(3, 3, 2, .1);
 }
 
 /* cart checkout style */
@@ -487,9 +538,15 @@ button {
     font-size: 1.2em;
   }
 
-  .cart-card {
+  .wishlist-card {
     font-size: inherit;
     grid-template-columns: 150px auto 15%;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .showcase-list {
+    grid-template-columns:  repeat(auto-fit, minmax(100px, 200px));
   }
 }
 

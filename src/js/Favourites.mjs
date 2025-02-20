@@ -6,10 +6,10 @@ function favItemTemplate(item) {
   const color = item.Colors?.[0]?.ColorName || "No color specified";
   return `
     <li class="fav-card divider">
-      <button class="remove-fav" data-id="${item.id}">❌</button>
+      <button class="remove" data-id="${item.id}">❌</button>
         <img src="${item.background_image}" alt="${item.name}" />
         <h2 class="card__name">${item.name}</h2>
-      <p class="fav-card__color">${color}</p>
+      <p class="fav-card__color">${item.ratings[0].title}: ${item.ratings[0].percent}</p>
     </li>
   `;
 }
@@ -46,7 +46,7 @@ export default class favList {
         console.error("Invalid game id:", button.dataset.id);
         return;
       }
-      if (button.classList.contains("remove-fav")) {
+      if (button.classList.contains("remove")) {
         if (confirm("Are you sure you want to remove this game from your favourites?") == true) {
             // Remove item from fav:
             let fav = getLocalStorage(this.key) || [];
