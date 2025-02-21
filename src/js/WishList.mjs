@@ -59,14 +59,12 @@ export default class WishList {
     card.addEventListener("mouseenter", (event) => {
       const button = card.querySelector("button");
       if (!button) return;
-      console.log(button);
 
       button.classList.toggle("hide");
     });
     card.addEventListener("mouseout", (event) => {
       const button = card.querySelector("button");
       if (!button) return;
-      console.log(button);
 
       button.classList.toggle("hide");
     });

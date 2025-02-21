@@ -1,7 +1,6 @@
 import { renderListWithTemplate } from "./utils.mjs";
 
 function gameCardTemplate(game) {
-  console.log(game.id);
   let html = `<li class="product-card">
         <a href="../game_pages/index.html?game=${game.id}">
         <picture class="divider">

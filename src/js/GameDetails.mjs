@@ -9,7 +9,6 @@ export default class GameDetails {
   async init() {
     // Retrieve game details and render HTML
     this.game = await this.dataSource.findGameById(this.gameId);
-    console.log(this.game);
     this.renderGameDetails(this.game);
 
     // Attach listeners for both buttons
@@ -21,7 +20,6 @@ export default class GameDetails {
   addToFav() {
     // Retrieve the cart from local storage or initialize an empty array
     let games = getLocalStorage("favs") || [];
-    console.log()
     // Check if the game already exists in the cart
     let existingGame = games.find(item => item.id === this.game.id);
 
@@ -62,7 +60,6 @@ export default class GameDetails {
 
   // Generate HTML display
   renderGameDetails(game) {
-    console.log(game);
     let newGame = ""
 
     newGame += `

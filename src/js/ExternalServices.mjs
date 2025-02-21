@@ -1,6 +1,5 @@
 const baseURL = "https://api.rawg.io/api/";
 const key = import.meta.env.RAWG_API_KEY || "258c25d2a124455d9cb9e874f816cf1a";
-console.log(key)
 
 function convertToJson(res) {
   if (res.ok) {
@@ -23,7 +22,6 @@ export default class ExternalServices {
         this.baseURL + `games?key=${key}&page=4&page_size=20`,
       );
       const data = await convertToJson(response);
-      console.log(data.results);
       return data.results;
     } catch (error) {
       console.error("Error fetching data:", error);
@@ -37,7 +35,6 @@ export default class ExternalServices {
         this.baseURL + `games?key=${key}&dates=2024-01-01,2025-02-20&ordering=-added&page=1`,
       );
       const data = await convertToJson(response);
-      console.log(data.results);
       return data.results;
     } catch (error) {
       console.error("Error fetching data:", error);
@@ -46,7 +43,6 @@ export default class ExternalServices {
   }
 
   async findGameById(id) {
-    console.log("findGameById", id);
     const response = await fetch(`${this.baseURL}games/${id}?key=${key}`);
     const data = await convertToJson(response);
     return data;
