@@ -7,7 +7,7 @@ function wishlistItemTemplate(item) {
   return `
     <li class="wishlist-card divider">
       <button class="remove" data-id="${item.id}">❌</button>
-        <img src="${item.background_image}" alt="${item.name}" />
+        <img loading="lazy" src="${item.background_image}" alt="${item.name}" />
         <h2 class="card__name">${item.name}</h2>
     </li>
   `;

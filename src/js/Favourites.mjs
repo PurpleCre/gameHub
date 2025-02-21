@@ -7,7 +7,7 @@ function favItemTemplate(item) {
   return `
     <li class="fav-card divider">
       <button class="remove hide" data-id="${item.id}">❌</button>
-        <img src="${item.background_image}" alt="${item.name}" />
+        <img loading="lazy" src="${item.background_image}" alt="${item.name}" />
         <h2 class="card__name">${item.name}</h2>
       <p class="fav-card__color">${item.ratings[0].title}: ${item.ratings[0].percent}</p>
     </li>

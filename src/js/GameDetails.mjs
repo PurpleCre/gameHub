@@ -70,7 +70,7 @@ export default class GameDetails {
     <h2 class="divider">${game.name}</h2>
     <picture class="divider">
       <source media="(max-width: 500px)" srcset="${game.background_image}" />
-      <img src="${game.background_image}" alt="${game.name}" />
+      <img loading="lazy" src="${game.background_image}" alt="${game.name}" />
     </picture>
     <p class="rating">Rating: <br>${game.rating}</p>
     <div class="game__description">

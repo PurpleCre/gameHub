@@ -6,7 +6,7 @@ function gameCardTemplate(game) {
         <a href="../game_pages/index.html?game=${game.id}">
         <picture class="divider">
           <source media="(max-width: 500px)" srcset="${game.background_image}" />
-          <img src="${game.background_image}" alt="Image of ${game.name}" />
+          <img loading="lazy" src="${game.background_image}" alt="Image of ${game.name}" />
         </picture>
         <h3 class="card__brand">${game.genres[0].name}</h3>
         <h2 class="card__name">${game.name}</h2>
