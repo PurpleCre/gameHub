@@ -20,7 +20,7 @@ export default class ExternalServices {
   async getData() {
     try {
       const response = await fetch(
-        this.baseURL + `games?key=${key}&page=1&pagesize=4`,
+        this.baseURL + `games?key=${key}&page=4&page_size=20`,
       );
       const data = await convertToJson(response);
       console.log(data.results);
@@ -34,7 +34,7 @@ export default class ExternalServices {
   async getTrending() {
     try {
       const response = await fetch(
-        this.baseURL + `games?key=${key}&page=1&pagesize=4`,
+        this.baseURL + `games?key=${key}&dates=2024-01-01,2025-02-20&ordering=-added&page=1`,
       );
       const data = await convertToJson(response);
       console.log(data.results);

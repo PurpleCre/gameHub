@@ -1,4 +1,4 @@
-import { qs, renderListWithTemplate, getLocalStorage, setLocalStorage } from "./utils.mjs";
+import { qs, renderListWithTemplate, getLocalStorage, setLocalStorage, setSuperscript } from "./utils.mjs";
 
 // Template function for a single fav item
 function favItemTemplate(item) {
@@ -6,7 +6,7 @@ function favItemTemplate(item) {
   const color = item.Colors?.[0]?.ColorName || "No color specified";
   return `
     <li class="fav-card divider">
-      <button class="remove" data-id="${item.id}">❌</button>
+      <button class="remove hide" data-id="${item.id}">❌</button>
         <img src="${item.background_image}" alt="${item.name}" />
         <h2 class="card__name">${item.name}</h2>
       <p class="fav-card__color">${item.ratings[0].title}: ${item.ratings[0].percent}</p>
@@ -27,6 +27,7 @@ export default class favList {
     this.favItems = getLocalStorage(this.key) || [];
     this.renderFavContents();
     this.attachFavListeners();
+    setSuperscript();
   }
 
   attachFavListeners() {
@@ -55,6 +56,22 @@ export default class favList {
             window.location.reload();
         }
       }
+    });
+    
+    let card = document.querySelector(".fav-card")
+    card.addEventListener("mouseenter", (event) => {
+      const button = card.querySelector("button");
+      if (!button) return;
+      console.log(button);
+
+      button.classList.toggle("hide");
+    });
+    card.addEventListener("mouseout", (event) => {
+      const button = card.querySelector("button");
+      if (!button) return;
+      console.log(button);
+
+      button.classList.toggle("hide");
     });
   }
 

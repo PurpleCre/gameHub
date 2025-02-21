@@ -55,12 +55,31 @@ export default class WishList {
         }
       }
     });
+    let card = document.querySelector(".wishlist-card")
+    card.addEventListener("mouseenter", (event) => {
+      const button = card.querySelector("button");
+      if (!button) return;
+      console.log(button);
+
+      button.classList.toggle("hide");
+    });
+    card.addEventListener("mouseout", (event) => {
+      const button = card.querySelector("button");
+      if (!button) return;
+      console.log(button);
+
+      button.classList.toggle("hide");
+    });
   }
 
   // Render wishlist items from localStorage
   renderWishlistContents() {
     const wishlistElement = this.listElement;
     const wishlistItems = getLocalStorage(this.key) || [];
+    if (getLocalStorage(this.key) == []) {
+      wishlistElement.innerHTML = "<li class='wishlist-card'>No items in your wishlist yet!</li>";
+      return;
+    }
     wishlistElement.innerHTML = ""; // Clear previous content
     renderListWithTemplate(wishlistItemTemplate, wishlistElement, wishlistItems);
   }

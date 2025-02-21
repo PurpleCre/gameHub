@@ -27,6 +27,14 @@
   box-sizing: border-box;
 }
 
+/* Animation code */
+@keyframes shake {
+  0%   {transform: rotate(0);}
+  25%  {transform: rotate(20deg)}
+  50%  {transform: rotate(-20deg)}
+  100% {transform: rotate(0)}
+}
+
 body {
   margin: 0;
   font-family: var(--font-body);
@@ -188,7 +196,7 @@ header {
 
 button {
   padding: 0.5em 2em;
-  background-color: var(--accent-blue);
+  background-color: var(--accent-purple);
   color: var(--light-text);
   margin: auto;
   display: block;
@@ -196,6 +204,11 @@ button {
   font-size: var(--large-font);
   cursor: pointer;
   border-radius: 20px;
+}
+
+button:hover {
+  background-color: var(--accent-green);
+  transition: background-color 0.5s ease;
 }
 
 #addToWishlist {
@@ -225,8 +238,14 @@ button {
   fill: var(--accent-purple)
 }
 
-.wishlist:hover svg {
-  fill: gray;
+.cart:hover {
+  animation-name: shake;
+  animation-iteration-count: infinite;
+  animation-duration: 3s;
+  animation-timing-function: ease-in-out;
+}
+.cart:hover svg {
+  fill: var(--accent-blue);
 }
 
 /* End cart icon styles */
@@ -315,6 +334,11 @@ a {
   border: 1px solid var(--light-grey);
   max-width: 250px;
   color: var(--light-text);
+}
+
+.product-card:hover {
+  border: 1px solid var(--accent-purple);
+  transform: translateY(-5px);
 }
 
 .product-card h2,
